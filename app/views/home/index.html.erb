@@ -1,7 +1,5 @@
 <h1>Users online</h1>
 
-<ul>
-  <% User.online.each do |user| %>
-    <li><%= user.name %></li>
-  <% end %>
+<ul id="online-users">
+  <%= render partial: "users/online", collection: User.online, as: :user %>
 </ul>
