@@ -7,4 +7,6 @@ class User < ApplicationRecord
 
   has_many :notifications, foreign_key: :recipient_id
   has_many :services
+
+  scope :online, ->{ where("last_seen_at > ?", 15.minutes.ago) }
 end
